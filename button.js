@@ -1,11 +1,23 @@
 /* globals
-  Template
   URL
 */
+
+import { Template } from 'meteor/templating'
+import { Random } from 'meteor/random'
+
+Template.inputBinary.onCreated(function () {
+  this.uid = Random.secret()
+})
 
 Template.inputBinary.onRendered(function () {
   if (!this.$('input.inputBinary').val() && this.data.default) {
     this.$('input.inputBinary').val(this.data.default).trigger('change', this.data.default)
+  }
+})
+
+Template.inputBinary.helpers({
+  uid () {
+    return Template.instance().uid
   }
 })
 

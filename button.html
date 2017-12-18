@@ -1,10 +1,10 @@
 <template name="inputBinary">
   <div class="field {{class}}">
-    <label class="ui icon button">
+    <label for="{{uid}}" class="ui icon button">
       <i class="{{#if icon}}{{icon}}{{else}}photo{{/if}} icon"></i>
       {{#if caption}}{{caption}}{{else}}Upload Photo{{/if}}
       <input name="{{name}}" class="inputBinary" type="hidden">
-      <input type="file" style="display:none">
+      <input id="{{uid}}" type="file" style="display:none">
     </label>
   </div>
 </template>
